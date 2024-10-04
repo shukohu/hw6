@@ -5,6 +5,8 @@ import com.employee.exception.EmployeeAlreadyAddedException;
 import com.employee.exception.EmployeeNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -44,5 +46,10 @@ public class EmployeeServiceImpl implements EmployeeService {
             return employee;
         }
         throw new EmployeeNotFoundException();
+    }
+
+    @Override
+    public Collection<Employee> findAll() {
+        return new ArrayList<>(employeeList);
     }
 }
